@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantTRPZ.DAL.Entities
+namespace RestaurantTRPZ.BLL.DTO
 {
-    public class Ingredient : BaseEntity<int>
+    public class DishTypeDTO
     {
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }
