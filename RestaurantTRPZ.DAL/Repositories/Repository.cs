@@ -3,30 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RestaurantTRPZ.DAL.EF;
 using RestaurantTRPZ.DAL.Repositories.Interfaces;
 
 namespace RestaurantTRPZ.DAL.Repositories
 {
     public class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity : class
     {
-        public Repository()
+        /* 
+         Change when add EF and real database
+        */
+        private readonly RestaurantContext context;
+        private readonly HashSet<TEntity> entities;
+
+        public Repository(RestaurantContext context)
         {
-            //Need db context for realization methods
+            this.context = context;
+            entities = (HashSet<TEntity>)context.GetSetByType(typeof(TEntity));
         }
 
         public void Create(TEntity item)
         {
-            throw new NotImplementedException();
+            entities.Add(item);
         }
 
         public void Delete(TEntity entity)
         {
-            throw new NotImplementedException();
+            entities.Remove(entity);
         }
 
         public IEnumerable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return entities.ToList();
         }
 
         public TEntity Read(TKey id)
@@ -36,7 +44,7 @@ namespace RestaurantTRPZ.DAL.Repositories
 
         public void Update(TEntity item)
         {
-            throw new NotImplementedException();
+            entities.Add(item);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using RestaurantTRPZ.DAL.Entities;
+﻿using RestaurantTRPZ.DAL.EF;
+using RestaurantTRPZ.DAL.Entities;
 using RestaurantTRPZ.DAL.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,14 +11,16 @@ namespace RestaurantTRPZ.DAL.Repositories
 {
     public class CookRepository : Repository<Cook, int>, ICookRepository
     {
-        public CookRepository()
+        private readonly RestaurantContext _context;
+
+        public CookRepository(RestaurantContext context) : base(context)
         {
-            //need db context for realization method's
+            _context = context;
         }
 
         public Cook GetFreeCook()
         {
-            throw new NotImplementedException();
+            return _context.Cooks.First(); //need change logic of getting free cook
         }
     }
 }

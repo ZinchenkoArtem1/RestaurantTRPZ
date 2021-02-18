@@ -7,21 +7,48 @@ using System.Threading.Tasks;
 
 namespace RestaurantTRPZ.DAL.EF
 {
+    /*
+     ToDo Connect EF 
+    */
+     
     public class RestaurantContext
     {
-        ICollection<Dish> Dishes { get; set; }
-        ICollection<Order> Orders { get; set; }
-        ICollection<Equipment> Equipments { get; set; }
-        ICollection<Cook> Cooks { get; set; }
-        ICollection<Ingredient> Ingredients { get; set; }
+        public ICollection<Dish> Dishes { get; set; }
+        public ICollection<Order> Orders { get; set; }
+        public ICollection<Equipment> Equipments { get; set; }
+        public ICollection<Cook> Cooks { get; set; }
+        public ICollection<Ingredient> Ingredients { get; set; }
 
         public RestaurantContext()
         {
-            Dishes = new HashSet<Dish>();
-            Orders = new HashSet<Order>();
-            Equipments = new HashSet<Equipment>();
-            Cooks = new HashSet<Cook>();
-            Ingredients = new HashSet<Ingredient>();
+            Dishes = new List<Dish>();
+            Orders = new List<Order>();
+            Equipments = new List<Equipment>();
+            Cooks = new List<Cook>();
+            Ingredients = new List<Ingredient>();
         }
+
+        //Very bad, when connect db delete this
+        public IEnumerable<object> GetSetByType(Type type)
+        {
+            switch (type.Name)
+            {
+                case "Dish":
+                    return Dishes;
+                case "Order":
+                    return Orders;
+                case "Equipment":
+                    return Equipments;
+                case "Cook":
+                    return Cooks;
+                case "Ingredient":
+                    return Ingredients;
+                default:
+                    return null;
+            }
+        }
+
+
+        
     }
 }
