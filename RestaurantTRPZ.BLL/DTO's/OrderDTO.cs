@@ -14,5 +14,6 @@ namespace RestaurantTRPZ.BLL.DTO_s
         public TimeSpan PreparingTime { get; set; }
 
         public DishDTO Dish { get; set; }
+        public CookDTO Cook { get; set; }
     }
 }

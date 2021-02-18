@@ -16,7 +16,7 @@ namespace RestaurantTRPZ.BLL.DTO_s
 
         public DishTypeDTO DishType { get; set; }
 
-        public IEnumerable<EquipmentDTO> Equipments { get; set; }
-        public IEnumerable<IngredientDTO> Ingredients { get; set; }
+        public ICollection<EquipmentDTO> Equipments { get; set; }
+        public ICollection<IngredientDTO> Ingredients { get; set; }
     }
 }

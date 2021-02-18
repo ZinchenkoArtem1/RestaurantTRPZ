@@ -13,10 +13,10 @@ namespace RestaurantTRPZ.DAL.Entities
         public double Weight { get; set; }
         public TimeSpan CookingTime { get; set; }
 
-        public int DishId { get; set; }
+        public int DishTypeId { get; set; }
         public DishType DishType { get; set; }
 
-        public IEnumerable<Equipment> Equipments { get; set; }
-        public IEnumerable<Ingredient> Ingredients { get; set; }
+        public ICollection<Equipment> Equipments { get; set; }
+        public ICollection<Ingredient> Ingredients { get; set; }
     }
 }
