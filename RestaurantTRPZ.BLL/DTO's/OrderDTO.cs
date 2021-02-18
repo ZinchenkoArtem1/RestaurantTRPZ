@@ -1,4 +1,4 @@
-﻿using RestaurantTRPZ.BLL.DTO;
+﻿using RestaurantTRPZ.BLL.DTO_s;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,7 @@ namespace RestaurantTRPZ.BLL.DTO_s
 {
     public class OrderDTO
     {
+        public int Id { get; set; }
         public DateTime BeginOfOrder { get; set; }
         public TimeSpan PreparingTime { get; set; }
 

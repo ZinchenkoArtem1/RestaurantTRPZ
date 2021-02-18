@@ -8,6 +8,7 @@ namespace RestaurantTRPZ.BLL.DTO_s
 {
     public class DishDTO
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
         public double Weight { get; set; }
@@ -15,6 +16,7 @@ namespace RestaurantTRPZ.BLL.DTO_s
 
         public DishTypeDTO DishType { get; set; }
 
+        public IEnumerable<EquipmentDTO> Equipments { get; set; }
         public IEnumerable<IngredientDTO> Ingredients { get; set; }
     }
 }

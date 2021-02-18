@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DTO%27s\DishDTO.cs" />
     <Compile Include="DTO%27s\DishTypeDTO.cs" />
+    <Compile Include="DTO%27s\EquipmentDTO.cs" />
     <Compile Include="DTO%27s\IngredientDTO.cs" />
     <Compile Include="DTO%27s\OrderDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
