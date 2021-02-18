@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantTRPZ.BLL.DTO
+namespace RestaurantTRPZ.BLL.DTO_s
 {
     public class DishTypeDTO
     {

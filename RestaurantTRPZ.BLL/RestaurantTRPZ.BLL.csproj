@@ -46,12 +46,18 @@
     <Compile Include="DTO%27s\IngredientDTO.cs" />
     <Compile Include="DTO%27s\OrderDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DishService.cs" />
+    <Compile Include="Services\Interfaces\IOrderService.cs" />
+    <Compile Include="Services\OrderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RestaurantTRPZ.DAL\RestaurantTRPZ.DAL.csproj">
       <Project>{8670acc8-679d-40bc-a686-30604d043e4a}</Project>
       <Name>RestaurantTRPZ.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\Interfaces\IDishService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
