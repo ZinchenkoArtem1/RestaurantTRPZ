@@ -27,7 +27,7 @@ namespace RestaurantTRPZ.DAL.Repositories
 
         public void Save()
         {
-            // _context.SaveChanging() when add EF to project
+            _context.SaveChanges();
         }
     }
 }

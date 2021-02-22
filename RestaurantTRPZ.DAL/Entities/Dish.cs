@@ -14,9 +14,9 @@ namespace RestaurantTRPZ.DAL.Entities
         public TimeSpan CookingTime { get; set; }
 
         public int DishTypeId { get; set; }
-        public DishType DishType { get; set; }
+        public virtual DishType DishType { get; set; }
 
-        public ICollection<Equipment> Equipments { get; set; }
-        public ICollection<Ingredient> Ingredients { get; set; }
+        public virtual ICollection<Equipment> Equipments { get; set; }
+        public virtual ICollection<DishIngredient> DishIngredients { get; set; }
     }
 }

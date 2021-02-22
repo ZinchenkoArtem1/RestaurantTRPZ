@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace RestaurantTRPZ.DAL.Entities
 {
-    public class DishEquipmnets
+    public class EquipmentDishes : BaseEntity<int>
     {
         public int DishId { get; set; }
         public Dish Dish { get; set; }
 
-        public int Equipmentid { get; set; }
+        public int EquipmentId { get; set; }
         public Equipment Equipment { get; set; }
     }
 }

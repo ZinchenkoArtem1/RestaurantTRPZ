@@ -12,10 +12,10 @@ namespace RestaurantTRPZ.DAL.Entities
         public TimeSpan PreparingTime { get; set; }
 
         public int DishId { get; set; }
-        public Dish Dish { get; set; }
+        public virtual Dish Dish { get; set; }
 
         public int CookId { get; set; }
-        public Cook Cook { get; set; }
+        public virtual Cook Cook { get; set; }
 
     }
 }

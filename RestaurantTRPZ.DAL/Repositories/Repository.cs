@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,12 +15,12 @@ namespace RestaurantTRPZ.DAL.Repositories
          Change when add EF and real database
         */
         private readonly RestaurantContext context;
-        private readonly HashSet<TEntity> entities;
+        private readonly DbSet<TEntity> entities;
 
         public Repository(RestaurantContext context)
         {
             this.context = context;
-            entities = (HashSet<TEntity>)context.GetSetByType(typeof(TEntity));
+            entities = context.Set<TEntity>();
         }
 
         public void Create(TEntity item)

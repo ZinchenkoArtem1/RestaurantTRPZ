@@ -12,5 +12,7 @@ namespace RestaurantTRPZ.DAL.Entities
         public DateTime OffTime { get; set; }
         public TimeSpan PreparationTime { get; set; }
         public TimeSpan SavingStateTime { get; set; }
+
+        public virtual ICollection<Dish> Dishes { get; set; }
     }
 }
