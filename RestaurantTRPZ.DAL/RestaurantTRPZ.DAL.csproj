@@ -58,8 +58,10 @@
     <Compile Include="Entities\DishIngredient.cs" />
     <Compile Include="Entities\DishType.cs" />
     <Compile Include="Entities\Equipment.cs" />
+    <Compile Include="Entities\EquipmentType.cs" />
     <Compile Include="Entities\Ingredient.cs" />
     <Compile Include="Entities\Order.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DishRepository.cs" />
     <Compile Include="Repositories\CookRepository.cs" />

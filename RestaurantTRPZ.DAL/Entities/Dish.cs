@@ -15,8 +15,10 @@ namespace RestaurantTRPZ.DAL.Entities
 
         public int DishTypeId { get; set; }
         public virtual DishType DishType { get; set; }
+        
+        public int EquipmentTypeId { get; set; }
+        public virtual EquipmentType EquipmentType { get; set; }
 
-        public virtual ICollection<Equipment> Equipments { get; set; }
         public virtual ICollection<DishIngredient> DishIngredients { get; set; }
     }
 }
