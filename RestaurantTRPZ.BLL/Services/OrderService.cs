@@ -14,6 +14,7 @@ namespace RestaurantTRPZ.BLL.Services
     {
         private readonly IUnitOfWork _unitOfWork;
 
+        //ToDo add mapper
         public OrderService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -22,19 +23,45 @@ namespace RestaurantTRPZ.BLL.Services
         public OrderDTO DoOrder(DishDTO dishDTO)
         {
             DateTime startOrder = DateTime.Now;
-            Cook cook = _unitOfWork.Cooks.GetFreeCook();
-            OrderDTO orderDTO = new OrderDTO
+            Dish dishOrder = new Dish(); //Map from dishDTO
+            Equipment equipmentOrder = dishOrder.Equipment;
+
+            Cook cookOrder = GetSuitableCook(); //maybe add in later, get cook by him speciality and busyness
+            DateTime endOrder = GetOrderTime(startOrder, dishOrder.CookingTime, cookOrder.Efficiency, equipmentOrder);
+            equipmentOrder.OffTime = endOrder;
+
+            Order order = new Order()
             {
                 BeginOfOrder = startOrder,
-                Dish = dishDTO,
-                Cook = new CookDTO(), // map from cook 
-                PreparingTime = dishDTO.CookingTime // Count preparing time for cooking(with time for preparing equipments)
+                EndOfOrder = endOrder,
+                Cook = cookOrder,
+                Dish = dishOrder
             };
-            Order order = new Order(); // Map from OrderDTO
+
+            OrderDTO orderDTO = new OrderDTO(); // Map from Order
+            _unitOfWork.Equipments.Update(equipmentOrder);
             _unitOfWork.Orders.Create(order);
-            //Add save db
-            //Update dish equipments OffTime
+            _unitOfWork.Save();
+
             return orderDTO;
+        }
+
+        private DateTime GetOrderTime(DateTime startOrder, TimeSpan cookingTime, double cookEfficiency, Equipment equipment)
+        {
+            DateTime orderTime = new DateTime((long)(cookingTime.Ticks * cookEfficiency));
+            DateTime offEquipmentTime = equipment.OffTime;
+            if((startOrder - offEquipmentTime) > equipment.SaveStateTime) // equipment is free, but not ready for working
+            {
+                orderTime += equipment.PreparingTime;  
+            } else if (offEquipmentTime > orderTime) {  //equipment is busy 
+                orderTime += offEquipmentTime - orderTime; 
+            } //else equipment is free and ready for working
+            return orderTime;
+        }
+
+        private Cook GetSuitableCook() 
+        {
+            return _unitOfWork.Cooks.GetAll().FirstOrDefault(); //change logic of getting cook
         }
     }
 }

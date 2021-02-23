@@ -9,7 +9,7 @@ namespace RestaurantTRPZ.DAL.Entities
     public class Order : BaseEntity<int>
     {
         public DateTime BeginOfOrder { get; set; }
-        public TimeSpan PreparingTime { get; set; }
+        public DateTime EndOfOrder { get; set; }
 
         public int DishId { get; set; }
         public virtual Dish Dish { get; set; }

@@ -11,9 +11,8 @@ namespace RestaurantTRPZ.BLL.DTO_s
     {
         public int Id { get; set; }
         public DateTime BeginOfOrder { get; set; }
-        public TimeSpan PreparingTime { get; set; }
+        public DateTime EndOfOrder { get; set; }
 
         public DishDTO Dish { get; set; }
-        public CookDTO Cook { get; set; }
     }
 }

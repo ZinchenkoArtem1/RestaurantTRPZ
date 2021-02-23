@@ -15,14 +15,16 @@ namespace RestaurantTRPZ.DAL.Repositories
         public ICookRepository Cooks { get; }
         public IDishRepository Dishes { get; }
         public IOrderRepository Orders { get; }
+        public IEquipmentRepository Equipments { get; }
 
         public UnitOfWork(RestaurantContext context, ICookRepository cookRepository,
-            IDishRepository dishRepository, IOrderRepository orderRepository)
+            IDishRepository dishRepository, IOrderRepository orderRepository, IEquipmentRepository equipmentRepository)
         {
             _context = context;
             Cooks = cookRepository;
             Dishes = dishRepository;
             Orders = orderRepository;
+            Equipments = equipmentRepository;
         }
 
         public void Save()

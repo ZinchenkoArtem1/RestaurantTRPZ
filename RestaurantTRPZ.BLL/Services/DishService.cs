@@ -14,6 +14,7 @@ namespace RestaurantTRPZ.BLL.Services
     {
         private readonly IUnitOfWork _unityOfWork;
 
+        //ToDo add mapper
         public DishService(IUnitOfWork unitOfWork)
         {
             _unityOfWork = unitOfWork;
@@ -38,6 +39,11 @@ namespace RestaurantTRPZ.BLL.Services
                 }
             }
             return dishDTOs;
+        }
+
+        public IEnumerable<DishDTO> GetAllDishes()
+        {
+            return new List<DishDTO>(); //_unityOfWork.Dishes.GetAll() map to IEnumerable<DishDTO>
         }
     }
 }

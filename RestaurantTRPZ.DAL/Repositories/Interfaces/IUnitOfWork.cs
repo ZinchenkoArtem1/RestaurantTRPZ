@@ -11,6 +11,7 @@ namespace RestaurantTRPZ.DAL.Repositories.Interfaces
         ICookRepository Cooks { get; }
         IDishRepository Dishes { get; }
         IOrderRepository Orders { get; }
+        IEquipmentRepository Equipments { get; }
 
         void Save();
     }

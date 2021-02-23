@@ -10,8 +10,7 @@ namespace RestaurantTRPZ.DAL.Entities
     {
         public string Name { get; set; }
         public DateTime OffTime { get; set; }
-        
-        public int EquipmentId { get; set; }
-        public virtual EquipmentType EquipmentType { get; set; }
+        public TimeSpan PreparingTime { get; set; }
+        public TimeSpan SaveStateTime { get; set; }    
     }
 }

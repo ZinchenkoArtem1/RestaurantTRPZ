@@ -1,5 +1,6 @@
 ﻿using RestaurantTRPZ.DAL.EF;
 using RestaurantTRPZ.DAL.Entities;
+using RestaurantTRPZ.DAL.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantTRPZ.DAL.Repositories
 {
-    public class EquipmentRepository : Repository<Equipment, int>
+    public class EquipmentRepository : Repository<Equipment, int>, IEquipmentRepository
     {
         private readonly RestaurantContext _context;
 
