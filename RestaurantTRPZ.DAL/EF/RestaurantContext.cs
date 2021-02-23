@@ -8,10 +8,6 @@ using System.Threading.Tasks;
 
 namespace RestaurantTRPZ.DAL.EF
 {
-    /*
-     ToDo Connect EF 
-    */
-
     public class RestaurantContext : DbContext
     {
         public DbSet<Dish> Dishes { get; set; }

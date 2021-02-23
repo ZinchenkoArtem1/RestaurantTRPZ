@@ -12,16 +12,16 @@ namespace RestaurantTRPZ.BLL.Services
 {
     public class DishService : IDishService
     {
-        private readonly IDishRepository _dishRepository;
+        private readonly IUnitOfWork _unityOfWork;
 
-        public DishService(IDishRepository dishRepository)
+        public DishService(IUnitOfWork unitOfWork)
         {
-            _dishRepository = dishRepository;
+            _unityOfWork = unitOfWork;
         }
 
         public DishDTO GetDishById(int dishId)
         {
-            Dish dish = _dishRepository.Read(dishId);
+            Dish dish = _unityOfWork.Dishes.Read(dishId);
 
             return new DishDTO(); // Map from dish
         }
@@ -30,7 +30,7 @@ namespace RestaurantTRPZ.BLL.Services
         {
             ICollection<DishDTO> dishDTOs = new List<DishDTO>();
 
-            foreach(Dish dish in _dishRepository.GetAll())
+            foreach(Dish dish in _unityOfWork.Dishes.GetAll())
             {
                 if(dish.DishTypeId == dishTypeId)
                 {

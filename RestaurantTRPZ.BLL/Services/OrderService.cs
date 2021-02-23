@@ -12,22 +12,17 @@ namespace RestaurantTRPZ.BLL.Services
 {
     class OrderService : IOrderService
     {
-        private readonly IOrderRepository _orderRepository;
-        private readonly IDishRepository _dishRepository;
-        private readonly ICookRepository _cookRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public OrderService(IOrderRepository orderRepository, IDishRepository dishRepository,
-            ICookRepository cookRepository)
+        public OrderService(IUnitOfWork unitOfWork)
         {
-            _orderRepository = orderRepository;
-            _dishRepository = dishRepository;
-            _cookRepository = cookRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public OrderDTO DoOrder(DishDTO dishDTO)
         {
             DateTime startOrder = DateTime.Now;
-            Cook cook = _cookRepository.GetFreeCook();
+            Cook cook = _unitOfWork.Cooks.GetFreeCook();
             OrderDTO orderDTO = new OrderDTO
             {
                 BeginOfOrder = startOrder,
@@ -36,7 +31,7 @@ namespace RestaurantTRPZ.BLL.Services
                 PreparingTime = dishDTO.CookingTime // Count preparing time for cooking(with time for preparing equipments)
             };
             Order order = new Order(); // Map from OrderDTO
-            _orderRepository.Create(order);
+            _unitOfWork.Orders.Create(order);
             //Add save db
             //Update dish equipments OffTime
             return orderDTO;
