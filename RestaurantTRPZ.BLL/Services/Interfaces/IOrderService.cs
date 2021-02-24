@@ -9,6 +9,6 @@ namespace RestaurantTRPZ.BLL.Services.Interfaces
 {
     public interface IOrderService
     {
-        OrderDTO DoOrder(DishDTO dishDTO);
+        OrderDTO DoOrder(int dishId);
     }
 }

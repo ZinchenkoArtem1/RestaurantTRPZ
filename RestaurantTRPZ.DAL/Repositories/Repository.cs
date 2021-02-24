@@ -40,12 +40,12 @@ namespace RestaurantTRPZ.DAL.Repositories
 
         public TEntity Read(TKey id)
         {
-            throw new NotImplementedException();
+            return entities.Find(id);
         }
 
         public void Update(TEntity item)
         {
-            entities.Add(item);
+            context.Entry<TEntity>(item).State = EntityState.Modified;
         }
     }
 }

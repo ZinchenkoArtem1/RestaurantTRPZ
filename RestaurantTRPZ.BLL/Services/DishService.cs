@@ -1,4 +1,5 @@
-﻿using RestaurantTRPZ.BLL.DTO_s;
+﻿using AutoMapper;
+using RestaurantTRPZ.BLL.DTO_s;
 using RestaurantTRPZ.BLL.Services.Interfaces;
 using RestaurantTRPZ.DAL.Entities;
 using RestaurantTRPZ.DAL.Repositories.Interfaces;
@@ -13,37 +14,26 @@ namespace RestaurantTRPZ.BLL.Services
     public class DishService : IDishService
     {
         private readonly IUnitOfWork _unityOfWork;
+        private readonly IMapper _mapper;
 
-        //ToDo add mapper
-        public DishService(IUnitOfWork unitOfWork)
+        public DishService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unityOfWork = unitOfWork;
-        }
-
-        public DishDTO GetDishById(int dishId)
-        {
-            Dish dish = _unityOfWork.Dishes.Read(dishId);
-
-            return new DishDTO(); // Map from dish
+            _mapper = mapper;
         }
 
         public IEnumerable<DishDTO> GetDishesByTypeId(int dishTypeId)
         {
-            ICollection<DishDTO> dishDTOs = new List<DishDTO>();
-
-            foreach(Dish dish in _unityOfWork.Dishes.GetAll())
-            {
-                if(dish.DishTypeId == dishTypeId)
-                {
-                    dishDTOs.Add(new DishDTO()); // map from dish
-                }
-            }
-            return dishDTOs;
+            //ToDo: add to dish repository getByFilter() and some change this method
+            IEnumerable<Dish> dishes = _unityOfWork.Dishes.GetAll();
+            return dishes.Where(d => d.DishTypeId == dishTypeId)
+                .Select(d => _mapper.Map<DishDTO>(d)).ToList();
         }
 
         public IEnumerable<DishDTO> GetAllDishes()
         {
-            return new List<DishDTO>(); //_unityOfWork.Dishes.GetAll() map to IEnumerable<DishDTO>
+            IEnumerable<Dish> dishes = _unityOfWork.Dishes.GetAll();
+            return dishes.Select(d => _mapper.Map<DishDTO>(d)).ToList(); 
         }
     }
 }

@@ -20,5 +20,10 @@ namespace RestaurantTRPZ.DAL.Entities
         public virtual Equipment Equipment { get; set; }
 
         public virtual ICollection<DishIngredient> DishIngredients { get; set; }
+
+        public Dish()
+        {
+            DishIngredients = new List<DishIngredient>();
+        }
     }
 }

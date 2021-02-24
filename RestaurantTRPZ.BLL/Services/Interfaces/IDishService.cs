@@ -11,8 +11,6 @@ namespace RestaurantTRPZ.BLL.Services.Interfaces
     {
         IEnumerable<DishDTO> GetDishesByTypeId(int dishTypeId);
 
-        DishDTO GetDishById(int dishId);
-
         IEnumerable<DishDTO> GetAllDishes();
     }
 }

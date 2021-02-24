@@ -14,8 +14,13 @@ namespace RestaurantTRPZ.BLL.DTO_s
         public double Weight { get; set; }
         public TimeSpan CookingTime { get; set; }
 
-        public DishTypeDTO DishType { get; set; }
+        public DishTypeDTO DishTypeDTO { get; set; }
 
-        public ICollection<IngredientDTO> Ingredients { get; set; }
+        public ICollection<IngredientDTO> IngredientDTOs { get; set; }
+
+        public DishDTO()
+        {
+            IngredientDTOs = new List<IngredientDTO>();
+        }
     }
 }

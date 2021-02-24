@@ -13,6 +13,6 @@ namespace RestaurantTRPZ.BLL.DTO_s
         public DateTime BeginOfOrder { get; set; }
         public DateTime EndOfOrder { get; set; }
 
-        public DishDTO Dish { get; set; }
+        public DishDTO DishDTO { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantTRPZ.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace RestaurantTRPZ.PL.CMD
     {
         static void Main(string[] args)
         {
+            Test test = new Test();
+            test.Testing();
         }
     }
 }
