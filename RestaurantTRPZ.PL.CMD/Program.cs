@@ -11,8 +11,7 @@ namespace RestaurantTRPZ.PL.CMD
     {
         static void Main(string[] args)
         {
-            Test test = new Test();
-            test.Testing();
+
         }
     }
 }

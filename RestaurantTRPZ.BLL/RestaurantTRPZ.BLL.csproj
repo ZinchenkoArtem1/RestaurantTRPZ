@@ -50,10 +50,13 @@
     <Compile Include="DTO%27s\IngredientDTO.cs" />
     <Compile Include="DTO%27s\OrderDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CookQueueService.cs" />
     <Compile Include="Services\DishService.cs" />
+    <Compile Include="Services\Interfaces\ICookQueueService.cs" />
     <Compile Include="Services\Interfaces\IOrderService.cs" />
+    <Compile Include="Services\Interfaces\IOrderTimeCalculationService.cs" />
     <Compile Include="Services\OrderService.cs" />
-    <Compile Include="Test.cs" />
+    <Compile Include="Services\OrderTimeCalculationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RestaurantTRPZ.DAL\RestaurantTRPZ.DAL.csproj">
