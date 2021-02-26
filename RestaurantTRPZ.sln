@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantTRPZ.DAL", "Resta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantTRPZ.BLL", "RestaurantTRPZ.BLL\RestaurantTRPZ.BLL.csproj", "{840255BD-E0D5-484B-88CA-F3AD92825224}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantTRPZ.PL.CMD", "RestaurantTRPZ.PL.CMD\RestaurantTRPZ.PL.CMD.csproj", "{36897C5A-9682-4B34-92EA-F09BB01BFC9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantTRPZ.WPF", "RestaurantTRPZ.WPF\RestaurantTRPZ.WPF.csproj", "{D24FCA7F-FD16-479F-BA2C-D8B891CA9B14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{840255BD-E0D5-484B-88CA-F3AD92825224}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{840255BD-E0D5-484B-88CA-F3AD92825224}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{840255BD-E0D5-484B-88CA-F3AD92825224}.Release|Any CPU.Build.0 = Release|Any CPU
-		{36897C5A-9682-4B34-92EA-F09BB01BFC9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{36897C5A-9682-4B34-92EA-F09BB01BFC9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{36897C5A-9682-4B34-92EA-F09BB01BFC9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{36897C5A-9682-4B34-92EA-F09BB01BFC9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D24FCA7F-FD16-479F-BA2C-D8B891CA9B14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D24FCA7F-FD16-479F-BA2C-D8B891CA9B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D24FCA7F-FD16-479F-BA2C-D8B891CA9B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D24FCA7F-FD16-479F-BA2C-D8B891CA9B14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

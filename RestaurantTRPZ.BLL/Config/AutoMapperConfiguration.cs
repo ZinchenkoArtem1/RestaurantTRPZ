@@ -9,24 +9,19 @@ using System.Threading.Tasks;
 
 namespace RestaurantTRPZ.BLL.Config
 {
-    public static class AutoMapperConfiguration
+    public class AutoMapperConfig : Profile
     {
-        public static MapperConfiguration ConfigureAutoMapper()
+        public AutoMapperConfig()
         {
-
-            MapperConfiguration configuration = new MapperConfiguration(confg =>
-            {
-                confg.CreateMap<Dish, DishDTO>()
+            CreateMap<Dish, DishDTO>()
                 .ForMember(m => m.IngredientDTOs, opt => opt.MapFrom(di => di.DishIngredients.Select(i => i.Ingredient)));
-                confg.CreateMap<DishDTO, Dish>();
-                confg.CreateMap<DishType, DishTypeDTO>();
-                confg.CreateMap<DishTypeDTO, DishType> ();
-                confg.CreateMap<Ingredient, IngredientDTO>();
-                confg.CreateMap<IngredientDTO, Ingredient>();
-                confg.CreateMap<Order, OrderDTO>();
-                confg.CreateMap<OrderDTO, Order>();
-            });
-            return configuration;
+            CreateMap<DishDTO, Dish>();
+            CreateMap<DishType, DishTypeDTO>();
+            CreateMap<DishTypeDTO, DishType>();
+            CreateMap<Ingredient, IngredientDTO>();
+            CreateMap<IngredientDTO, Ingredient>();
+            CreateMap<Order, OrderDTO>();
+            CreateMap<OrderDTO, Order>();
         }
     }
 }

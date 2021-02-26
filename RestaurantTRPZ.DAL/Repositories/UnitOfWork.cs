@@ -10,7 +10,7 @@ namespace RestaurantTRPZ.DAL.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly RestaurantContext _context;
+        public readonly RestaurantContext _context;
 
         public ICookRepository Cooks { get; }
         public IDishRepository Dishes { get; }
@@ -23,6 +23,7 @@ namespace RestaurantTRPZ.DAL.Repositories
             _context = context;
             Cooks = cookRepository;
             Dishes = dishRepository;
+            
             Orders = orderRepository;
             Equipments = equipmentRepository;
         }

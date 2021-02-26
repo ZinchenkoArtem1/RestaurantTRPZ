@@ -14,12 +14,12 @@ namespace RestaurantTRPZ.DAL.Repositories
         /* 
          Change when add EF and real database
         */
-        private readonly RestaurantContext context;
+        private readonly RestaurantContext _context;
         private readonly DbSet<TEntity> entities;
 
         public Repository(RestaurantContext context)
         {
-            this.context = context;
+            _context = context;
             entities = context.Set<TEntity>();
         }
 
@@ -33,9 +33,9 @@ namespace RestaurantTRPZ.DAL.Repositories
             entities.Remove(entity);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public virtual IEnumerable<TEntity> GetAll()
         {
-            return entities.ToList();
+            return entities.AsNoTracking().ToList();
         }
 
         public TEntity Read(TKey id)
@@ -45,7 +45,7 @@ namespace RestaurantTRPZ.DAL.Repositories
 
         public void Update(TEntity item)
         {
-            context.Entry<TEntity>(item).State = EntityState.Modified;
+            _context.Entry<TEntity>(item).State = EntityState.Modified;
         }
     }
 }
