@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RestarauntTRPZ.DAL.Impl\RestarauntTRPZ.DAL.Impl.csproj" />
+    <ProjectReference Include="..\RestaurantTRPZ.BLL.Abstr\RestaurantTRPZ.BLL.Abstr.csproj" />
+    <ProjectReference Include="..\RestaurantTRPZ.BLL.Impl\RestaurantTRPZ.BLL.Impl.csproj" />
+    <ProjectReference Include="..\RestaurantTRPZ.DTO\RestaurantTRPZ.DTO.csproj" />
+  </ItemGroup>
+
+</Project>
