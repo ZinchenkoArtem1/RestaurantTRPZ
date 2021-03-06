@@ -22,15 +22,16 @@ namespace RestaurantTRPZ.BLL.Impl.Mappers
                 .ForMember(d => d.Equipment, opt => opt.Ignore());
             CreateMap<Ingredient, IngredientDTO>();
             CreateMap<IngredientDTO, Ingredient>();
-            CreateMap<Order, OrderDTO>()
-                .ForMember(od => od.DishOrderDTOs, opt => opt.MapFrom(o => o.DishOrders));
-            CreateMap<OrderDTO, Order>()
-                .ForMember(o => o.DishOrders, opt => opt.MapFrom(od => od.DishOrderDTOs));
+
             CreateMap<DishOrder, DishOrderDTO>()
-                .ForMember(dot => dot.DishDTO, opt => opt.MapFrom(d => d.DishId));
+                .ForMember(dot => dot.DishDTO, opt => opt.MapFrom(d => d.Dish));
             CreateMap<DishOrderDTO, DishOrder>()
                 .ForMember(d => d.Cook, opt => opt.Ignore())
                 .ForMember(d => d.Dish, opt => opt.MapFrom(dot => dot.DishDTO));
+            CreateMap<Order, OrderDTO>()
+                .ForMember(o => o.DishOrderDTOs, opt => opt.MapFrom(o => o.DishOrders));
+            CreateMap<OrderDTO, Order>()
+                .ForMember(o => o.DishOrders, opt => opt.MapFrom(o => o.DishOrderDTOs));
         }
     }
 }

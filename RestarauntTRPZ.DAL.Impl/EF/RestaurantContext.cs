@@ -19,7 +19,7 @@ namespace RestarauntTRPZ.DAL.Impl.EF
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Order> Orders { get; set; }
 
-        public RestaurantContext(string NameOrConnectionStringName) : base(NameOrConnectionStringName) {
+        public RestaurantContext() : base("RestaurantConnectionDB") {
             Database.SetInitializer<RestaurantContext>(new DbInitializer());
         }
     }

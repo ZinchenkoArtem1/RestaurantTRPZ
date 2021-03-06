@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using RestarauntTRPZ.DAL.Impl;
+using RestaurantTRPZ.BLL.Abstr.Services;
 using RestaurantTRPZ.BLL.Impl;
 using RestaurantTRPZ.UI.View;
 using RestaurantTRPZ.UI.ViewModel;
@@ -29,15 +30,14 @@ namespace RestaurantTRPZ.UI
 
         private void ConfigureServices(IServiceCollection services)
         {
-            services.RegisterDALDependencies("RestaurantConnectionDB");
+            services.RegisterDALDependencies();
             services.RegisterBLLDependencies();
-            services.RegisterUIDependencies();
         }
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            MainViewModel viewModel = serviceProvider.GetService<MainViewModel>();
-            MainWindow mainWindow = serviceProvider.GetService<MainWindow>();
+            MainViewModel viewModel = new MainViewModel(serviceProvider.GetService<IDishService>(), serviceProvider.GetService<IOrderService>());
+            MainWindow mainWindow = new MainWindow();
             mainWindow.DataContext = viewModel;
             MainWindow.Show();
         }

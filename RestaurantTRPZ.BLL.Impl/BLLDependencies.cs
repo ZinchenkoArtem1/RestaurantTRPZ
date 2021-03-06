@@ -19,9 +19,9 @@ namespace RestaurantTRPZ.BLL.Impl
             var mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-            services.AddSingleton<ICookService, CookService>();
-            services.AddSingleton<IDishService, DishService>();
-            services.AddSingleton<IOrderService, OrderService>();
+            services.AddTransient<ICookService, CookService>();
+            services.AddTransient<IDishService, DishService>();
+            services.AddTransient<IOrderService, OrderService>();
             return services;
         }
     }

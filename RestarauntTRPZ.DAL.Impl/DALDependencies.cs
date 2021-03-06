@@ -14,15 +14,15 @@ namespace RestarauntTRPZ.DAL.Impl
 {
     public static class DALDependencies
     {
-        public static IServiceCollection RegisterDALDependencies(this IServiceCollection services, string connectionString)
+        public static IServiceCollection RegisterDALDependencies(this IServiceCollection services)
         {
-            services.AddSingleton(new RestaurantContext(connectionString));
+            services.AddScoped<RestaurantContext, RestaurantContext>();
 
-            services.AddSingleton<IOrderRepository, OrderRepository>();
-            services.AddSingleton<IDishRepository, DishRepository>();
-            services.AddSingleton<ICookRepository, CookRepository>();
-            services.AddSingleton<IEquipmentRepository, EquipmentRepository>();
-            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IDishRepository, DishRepository>();
+            services.AddScoped<ICookRepository, CookRepository>();
+            services.AddScoped<IEquipmentRepository, EquipmentRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
         }

@@ -48,8 +48,10 @@ namespace RestaurantTRPZ.BLL.Impl.Services
                 DateTime endOrder = startOrder + dishCookTime;
                 cook.WhenIsFree = endOrder;
                 unitOfWork.Cooks.Update(cook);
-                dish.Equipment.OffTime = endOrder;
-                unitOfWork.Equipments.Update(dish.Equipment);
+                if(dish.Equipment != null)
+                {
+                    unitOfWork.Equipments.Update(dish.Equipment);
+                }
                 order.DishOrders.Add(dishOrder);
             }
 
@@ -62,11 +64,11 @@ namespace RestaurantTRPZ.BLL.Impl.Services
         {
             TimeSpan dishCookTime = new TimeSpan((long)(dish.CookingTime.Ticks * cook.Efficiency));
             Equipment equipment = dish.Equipment;
-            DateTime offEquipmentTime = equipment.OffTime;
             if (equipment == null)
             {
                 return dishCookTime;
             }
+            DateTime offEquipmentTime = equipment.OffTime;
             if ((startOrder - offEquipmentTime) > equipment.SaveStateTime) // equipment is free, but not ready for working
             {
                 dishCookTime += equipment.PreparingTime;
@@ -74,7 +76,8 @@ namespace RestaurantTRPZ.BLL.Impl.Services
             else if (offEquipmentTime > startOrder)
             {  //equipment is busy 
                 dishCookTime += offEquipmentTime - startOrder;
-            } //else equipment is free and ready for working
+            } //else equipment is free and ready for working\
+            dish.Equipment.OffTime = startOrder + dishCookTime;
             return dishCookTime;
         }
     }
