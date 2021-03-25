@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantTRPZ.BLL.Impl", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantTRPZ.UI", "RestaurantTRPZ.UI\RestaurantTRPZ.UI.csproj", "{818F7F19-199D-45C6-BFA6-099C8C5E33FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantTRPZ.CMD", "RestaurantTRPZ.CMD\RestaurantTRPZ.CMD.csproj", "{8B32329B-3273-4355-AE21-2A34920F1B92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{818F7F19-199D-45C6-BFA6-099C8C5E33FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{818F7F19-199D-45C6-BFA6-099C8C5E33FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{818F7F19-199D-45C6-BFA6-099C8C5E33FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B32329B-3273-4355-AE21-2A34920F1B92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B32329B-3273-4355-AE21-2A34920F1B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B32329B-3273-4355-AE21-2A34920F1B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B32329B-3273-4355-AE21-2A34920F1B92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

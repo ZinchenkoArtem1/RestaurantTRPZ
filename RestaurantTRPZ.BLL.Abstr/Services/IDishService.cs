@@ -10,5 +10,7 @@ namespace RestaurantTRPZ.BLL.Abstr.Services
     public interface IDishService
     {
         IEnumerable<DishDTO> GetAllDishes();
+
+        DishDTO GetById(int id);
     }
 }

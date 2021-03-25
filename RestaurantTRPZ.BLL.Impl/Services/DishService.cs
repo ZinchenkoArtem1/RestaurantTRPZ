@@ -27,5 +27,10 @@ namespace RestaurantTRPZ.BLL.Impl.Services
             return unityOfWork.Dishes.GetAll()
                 .Select(d => mapper.Map<DishDTO>(d)).ToList();
         }
+
+        public DishDTO GetById(int id)
+        {
+            return mapper.Map<DishDTO>(unityOfWork.Dishes.Read(id));
+        }
     }
 }
