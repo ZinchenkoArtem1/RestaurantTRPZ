@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantTRPZ.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +16,8 @@ namespace RestaurantTRPZ.Entities
 
         public int CookId { get; set; }
         public virtual Cook Cook { get; set; }
+
+        public int OrderId { get; set; }
+        public virtual Order Order { get; set; }
     }
 }

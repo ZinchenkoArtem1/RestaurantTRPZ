@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанные со сборкой.
-[assembly: AssemblyTitle("RestaurantTRPZ.DTO")]
+[assembly: AssemblyTitle("RestaurantTRPZ.Models")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RestaurantTRPZ.DTO")]
+[assembly: AssemblyProduct("RestaurantTRPZ.Models")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("f1d42716-350c-456a-b21d-afa5915cf567")]
+[assembly: Guid("3e1ec5da-fa4f-4112-aa07-f22b234cf18d")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //

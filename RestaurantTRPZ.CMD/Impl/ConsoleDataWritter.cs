@@ -1,5 +1,5 @@
 ﻿using RestaurantTRPZ.CMD.Interfaces;
-using RestaurantTRPZ.DTO;
+using RestaurantTRPZ.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,65 +21,65 @@ namespace RestaurantTRPZ.CMD.Impl
             Console.WriteLine("6. Exit application");
         }
 
-        public void ShowMenuDishes(IEnumerable<DishDTO> dishDTOs)
+        public void ShowMenuDishes(IEnumerable<DishModel> dishModels)
         {
             Console.WriteLine("======Menu==========");
-            PrintDishes(dishDTOs);
+            PrintDishes(dishModels);
             Console.WriteLine("====================");
         }
 
-        public void ShowSelectedDishes(IEnumerable<DishDTO> dishDTOs)
+        public void ShowSelectedDishes(IEnumerable<DishModel> dishModels)
         {
             Console.WriteLine("====================");
             Console.WriteLine("Your selected dishes:");
-            PrintDishes(dishDTOs);
+            PrintDishes(dishModels);
             Console.WriteLine("====================");
         }
 
-        private void PrintDishes(IEnumerable<DishDTO> dishDTOs)
+        private void PrintDishes(IEnumerable<DishModel> dishModels)
         {
             Console.WriteLine("Id | Name | Price");
-            foreach (DishDTO dishDTO in dishDTOs)
+            foreach (DishModel dishModel in dishModels)
             {
-                Console.WriteLine(dishDTO.Id + " | " + dishDTO.Name + " | " + dishDTO.Price);
+                Console.WriteLine(dishModel.Id + " | " + dishModel.Name + " | " + dishModel.Price);
             }
         }
 
-        public void ShowOrder(OrderDTO orderDTO)
+        public void ShowOrder(OrderModel orderModel)
         {
             Console.WriteLine("====================");
-            Console.WriteLine("Order start at: " + orderDTO.BeginOfOrder);
+            Console.WriteLine("Order start at: " + orderModel.BeginOfOrder);
             Console.WriteLine("Name | Preparing time");
-            PrintDishesInOrder(orderDTO.DishOrderDTOs);
+            PrintDishesInOrder(orderModel.DishOrderModels);
             Console.WriteLine("====================");
         }
 
-        private void PrintDishesInOrder(IEnumerable<DishOrderDTO> dishOrderDTOs)
+        private void PrintDishesInOrder(IEnumerable<DishOrderModel> dishOrderModels)
         {
-            foreach (DishOrderDTO dishOrderDTO in dishOrderDTOs)
+            foreach (DishOrderModel dishOrderModel in dishOrderModels)
             {
-                Console.WriteLine(dishOrderDTO.DishDTO.Name + " | " + dishOrderDTO.PreparingTime);
+                Console.WriteLine(dishOrderModel.DishModel.Name + " | " + dishOrderModel.PreparingTime);
             }
         }
 
-        public void ShowDish(DishDTO dishDTO)
+        public void ShowDish(DishModel dishModel)
         {
             Console.WriteLine("====================");
-            Console.WriteLine("Name: " + dishDTO.Name);
-            Console.WriteLine("Price: " + dishDTO.Price);
-            Console.WriteLine("Dish type: " + dishDTO.DishTypeName);
-            Console.WriteLine("Weight: " + dishDTO.Weight);
+            Console.WriteLine("Name: " + dishModel.Name);
+            Console.WriteLine("Price: " + dishModel.Price);
+            Console.WriteLine("Dish type: " + dishModel.DishTypeModel.Name);
+            Console.WriteLine("Weight: " + dishModel.Weight);
             Console.Write("Ingredients: ");
-            PrintIngredients(dishDTO.IngredientDTOs);
+            PrintIngredients(dishModel.IngredientModels);
             Console.Write("\n");
             Console.WriteLine("====================");
         }
 
-        private void PrintIngredients(IEnumerable<IngredientDTO> ingredientDTOs)
+        private void PrintIngredients(IEnumerable<IngredientModel> ingredientModels)
         {
-            foreach (IngredientDTO ingredientDTO in ingredientDTOs)
+            foreach (IngredientModel ingredientModel in ingredientModels)
             {
-                Console.Write(ingredientDTO.Name + ", ");
+                Console.Write(ingredientModel.Name + ", ");
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantTRPZ.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace RestaurantTRPZ.Entities
     public class Dish : BaseEntity<int>
     {
         public string Name { get; set; }
-        public decimal Price { get; set; }
+        public int Price { get; set; }
         public double Weight { get; set; }
         public TimeSpan CookingTime { get; set; }
 
@@ -19,11 +20,13 @@ namespace RestaurantTRPZ.Entities
         public int? EquipmentId { get; set; }
         public virtual Equipment Equipment { get; set; }
 
-        public virtual ICollection<DishIngredient> DishIngredients { get; set; }
+        public virtual ICollection<Ingredient> Ingredients { get; set; }
+        public virtual ICollection<DishOrder> DishOrders { get; set; }
 
         public Dish()
         {
-            DishIngredients = new List<DishIngredient>();
+            Ingredients = new List<Ingredient>();
+            DishOrders = new List<DishOrder>();
         }
     }
 }

@@ -9,5 +9,7 @@ namespace RestarauntTRPZ.DAL.Abstr.Repositories
 {
     public interface ICookRepository : IGenericRepository<Cook, int>
     {
+        IEnumerable<Cook> GetFreeCooksByWhenIsFreeTime(DateTime startOrder);
+        IEnumerable<Cook> GetAllOrderedByWhenIsFreeTime();
     }
 }

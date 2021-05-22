@@ -21,7 +21,7 @@ namespace RestaurantTRPZ.CMD
             ConfigureServices(services);
             serviceProvider = services.BuildServiceProvider();
         }
-
+         
         private void ConfigureServices(IServiceCollection services)
         {
             services.RegisterDALDependencies();

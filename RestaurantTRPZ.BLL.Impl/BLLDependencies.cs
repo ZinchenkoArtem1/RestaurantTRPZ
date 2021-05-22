@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using RestaurantTRPZ.BLL.Abstr.Services;
 using RestaurantTRPZ.BLL.Impl.Mappers;
 using RestaurantTRPZ.BLL.Impl.Services;
@@ -15,13 +14,9 @@ namespace RestaurantTRPZ.BLL.Impl
     {
         public static IServiceCollection RegisterBLLDependencies(this IServiceCollection services)
         {
-            var mapperConfig = new MapperConfiguration(c => c.AddProfile(new ServiceMappingProfile()));
-            var mapper = mapperConfig.CreateMapper();
-            services.AddSingleton(mapper);
-
-            services.AddTransient<ICookService, CookService>();
-            services.AddTransient<IDishService, DishService>();
-            services.AddTransient<IOrderService, OrderService>();
+            services.AddSingleton<ICookService, CookService>();
+            services.AddSingleton<IDishService, DishService>();
+            services.AddSingleton<IOrderService, OrderService>();
             return services;
         }
     }

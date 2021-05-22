@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantTRPZ.DTO
+namespace RestaurantTRPZ.Models
 {
-    public class DishOrderDTO
+    public class DishTypeModel
     {
         public int Id { get; set; }
-        public TimeSpan PreparingTime { get; set; }
-
-        public DishDTO DishDTO { get; set; }
-
+        public string Name { get; set; }
     }
 }

@@ -15,7 +15,7 @@
     <ProjectReference Include="..\RestarauntTRPZ.DAL.Impl\RestarauntTRPZ.DAL.Impl.csproj" />
     <ProjectReference Include="..\RestaurantTRPZ.BLL.Abstr\RestaurantTRPZ.BLL.Abstr.csproj" />
     <ProjectReference Include="..\RestaurantTRPZ.BLL.Impl\RestaurantTRPZ.BLL.Impl.csproj" />
-    <ProjectReference Include="..\RestaurantTRPZ.DTO\RestaurantTRPZ.DTO.csproj" />
+    <ProjectReference Include="..\RestaurantTRPZ.Models\RestaurantTRPZ.Models.csproj" />
   </ItemGroup>
 
 </Project>

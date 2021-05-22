@@ -1,5 +1,5 @@
 ﻿using RestaurantTRPZ.BLL.Abstr.Services;
-using RestaurantTRPZ.DTO;
+using RestaurantTRPZ.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,16 +14,16 @@ namespace RestaurantTRPZ.UI.ViewModel
     {
         private readonly IDishService dishService;
         private readonly IOrderService orderService;
-        private DishDTO selectDish;
-        private DishDTO selectedDishInOrder;
-        public ObservableCollection<DishDTO> Dishes { get; set; }
-        public ObservableCollection<DishDTO> DishesInOrder { get; set; }
+        private DishModel selectDish;
+        private DishModel selectedDishInOrder;
+        public ObservableCollection<DishModel> Dishes { get; set; }
+        public ObservableCollection<DishModel> DishesInOrder { get; set; }
         public RelayCommand DoOrderCommand { get; private set; }
         public RelayCommand AddToOrderCommand { get; private set; }
         public RelayCommand DelFromOrderCommand { get; private set; }
         public RelayCommand CleanOrderCommand { get; private set; }
 
-        public DishDTO SelectDish
+        public DishModel SelectDish
         {
             get { return selectDish; }
             set
@@ -33,7 +33,7 @@ namespace RestaurantTRPZ.UI.ViewModel
             }
         }
 
-        public DishDTO SelectedDishInOrder
+        public DishModel SelectedDishInOrder
         {
             get { return selectedDishInOrder; }
             set
@@ -47,8 +47,8 @@ namespace RestaurantTRPZ.UI.ViewModel
         {
             this.dishService = dishService;
             this.orderService = orderService;
-            Dishes = new ObservableCollection<DishDTO>(this.dishService.GetAllDishes());
-            DishesInOrder = new ObservableCollection<DishDTO>();
+            Dishes = new ObservableCollection<DishModel>(this.dishService.GetAllDishes());
+            DishesInOrder = new ObservableCollection<DishModel>();
 
             DoOrderCommand = new RelayCommand(obj => DoOrder());
             AddToOrderCommand = new RelayCommand(obj => AddToOrder());
@@ -58,20 +58,22 @@ namespace RestaurantTRPZ.UI.ViewModel
 
         private void DoOrder()
         {
-            OrderDTO orderDTO = orderService.DoOrder(DishesInOrder);
+            OrderModel orderModel = orderService.DoOrder(DishesInOrder);
             DishesInOrder.Clear();
             selectedDishInOrder = null;
             
-            MessageBox.Show(GenerateMessage(orderDTO));
+            MessageBox.Show(GenerateMessage(orderModel));
         }
 
-        private string GenerateMessage(OrderDTO orderDTO)
+        private string GenerateMessage(OrderModel orderModel)
         {
-            String message = "Start order : " + orderDTO.BeginOfOrder + "\n";
+            String message = "Start order : " + orderModel.BeginOfOrder + "\n";
             message += "Name : Price : Preparing time \n";
-            foreach(DishOrderDTO dishOrderDTO in orderDTO.DishOrderDTOs)
+            foreach(DishOrderModel dishOrderModel in orderModel.DishOrderModels)
             {
-                message += dishOrderDTO.DishDTO.Name + " : " + dishOrderDTO.DishDTO.Price + " : " + dishOrderDTO.PreparingTime + "\n";
+                message += dishOrderModel.DishModel.Name + " : " 
+                    + dishOrderModel.DishModel.Price + " : " 
+                    + dishOrderModel.PreparingTime + "\n";
             }
             return message;
         }

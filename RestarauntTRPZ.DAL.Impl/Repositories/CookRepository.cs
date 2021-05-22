@@ -15,5 +15,17 @@ namespace RestarauntTRPZ.DAL.Impl.Repositories
         {
 
         }
+
+        public IEnumerable<Cook> GetAllOrderedByWhenIsFreeTime()
+        {
+            return dbSet.OrderBy(c => c.WhenIsFree)
+                .ToList();
+        }
+
+        public IEnumerable<Cook> GetFreeCooksByWhenIsFreeTime(DateTime startOrder)
+        {
+            return dbSet.Where(dt => startOrder > dt.WhenIsFree)
+                .ToList();
+        }
     }
 }

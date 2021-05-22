@@ -47,14 +47,17 @@
     <Compile Include="Services\IOrderService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RestaurantTRPZ.DTO\RestaurantTRPZ.DTO.csproj">
-      <Project>{f1d42716-350c-456a-b21d-afa5915cf567}</Project>
-      <Name>RestaurantTRPZ.DTO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RestaurantTRPZ.Entity\RestaurantTRPZ.Entities.csproj">
       <Project>{af1a4dab-fe48-453b-b9b9-e6b3c7878b00}</Project>
       <Name>RestaurantTRPZ.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestaurantTRPZ.Models\RestaurantTRPZ.Models.csproj">
+      <Project>{3e1ec5da-fa4f-4112-aa07-f22b234cf18d}</Project>
+      <Name>RestaurantTRPZ.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

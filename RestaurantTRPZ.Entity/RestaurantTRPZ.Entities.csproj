@@ -45,7 +45,6 @@
     <Compile Include="BaseEntity.cs" />
     <Compile Include="Cook.cs" />
     <Compile Include="Dish.cs" />
-    <Compile Include="DishIngredient.cs" />
     <Compile Include="DishOrder.cs" />
     <Compile Include="DishType.cs" />
     <Compile Include="Equipment.cs" />

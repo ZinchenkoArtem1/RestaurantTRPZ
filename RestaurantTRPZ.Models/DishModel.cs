@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantTRPZ.DTO
+namespace RestaurantTRPZ.Models
 {
-    public class DishDTO
+    public class DishModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
         public double Weight { get; set; }
         public TimeSpan CookingTime { get; set; }
-        public string DishTypeName { get; set; }
+        public DishTypeModel DishTypeModel { get; set; }
 
-        public ICollection<IngredientDTO> IngredientDTOs { get; set; }
+        public ICollection<IngredientModel> IngredientModels { get; set; }
 
-        public DishDTO()
+        public DishModel()
         {
-            IngredientDTOs = new List<IngredientDTO>();
+            IngredientModels = new List<IngredientModel>();
         }
     }
 }

@@ -22,7 +22,7 @@
                     <GridViewColumn Width="75" DisplayMemberBinding="{Binding Path=Name}">Name</GridViewColumn>
                     <GridViewColumn Width="75" DisplayMemberBinding="{Binding Path=Price}">Price</GridViewColumn>
                     <GridViewColumn Width="75" DisplayMemberBinding="{Binding Path=Weight}">Weight</GridViewColumn>
-                    <GridViewColumn Width="75" DisplayMemberBinding="{Binding Path=DishTypeName}">Type</GridViewColumn>
+                    <GridViewColumn Width="75" DisplayMemberBinding="{Binding Path=DishTypeModel.Name}">Type</GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -36,9 +36,9 @@
             <TextBlock FontSize="15" FontWeight="Bold" Text="Weight:" />
             <TextBlock FontSize="15" Text="{Binding Path=SelectDish.Weight}"/>
             <TextBlock FontSize="15" FontWeight="Bold" Text="Type:"/>
-            <TextBlock FontSize="15" Text="{Binding Path=SelectDish.DishTypeName}"/>
+            <TextBlock FontSize="15" Text="{Binding Path=SelectDish.DishTypeModel.Name}"/>
             <TextBlock FontSize="15" FontWeight="Bold" Text="Ingredients"/>
-            <ListView ItemsSource="{Binding Path=SelectDish.IngredientDTOs}" Height="80">
+            <ListView ItemsSource="{Binding Path=SelectDish.IngredientModels}" Height="80">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Path=Name}"/>

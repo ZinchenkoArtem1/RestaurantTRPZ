@@ -1,8 +1,8 @@
-﻿using AutoMapper;
-using RestarauntTRPZ.DAL.Abstr.UOW;
+﻿using RestarauntTRPZ.DAL.Abstr.UOW;
 using RestaurantTRPZ.BLL.Abstr.Services;
-using RestaurantTRPZ.DTO;
+using RestaurantTRPZ.BLL.Impl.Mappers;
 using RestaurantTRPZ.Entities;
+using RestaurantTRPZ.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,18 +14,15 @@ namespace RestaurantTRPZ.BLL.Impl.Services
     public class OrderService : IOrderService
     {
         private readonly IUnitOfWork unitOfWork;
-        private readonly IMapper mapper;
         private readonly ICookService cookService;
 
-        public OrderService(IUnitOfWork unitOfWork, IMapper mapper,
-            ICookService cookService)
+        public OrderService(IUnitOfWork unitOfWork, ICookService cookService)
         {
             this.unitOfWork = unitOfWork;
-            this.mapper = mapper;
             this.cookService = cookService;
         }
 
-        public OrderDTO DoOrder(ICollection<DishDTO> dishes)
+        public OrderModel DoOrder(ICollection<DishModel> dishes)
         {
             DateTime startOrder = DateTime.Now;
 
@@ -34,7 +31,7 @@ namespace RestaurantTRPZ.BLL.Impl.Services
                 BeginOfOrder = startOrder,
             };
 
-            foreach (DishDTO dishDTO in dishes)
+            foreach (DishModel dishDTO in dishes)
             {
                 Dish dish = unitOfWork.Dishes.Read(dishDTO.Id);
                 Cook cook = cookService.GetSuitableCook(startOrder);
@@ -57,7 +54,7 @@ namespace RestaurantTRPZ.BLL.Impl.Services
 
             unitOfWork.Orders.Create(order);
             unitOfWork.Save();
-            return mapper.Map<OrderDTO>(order);
+            return order.EntityToModel();
         }
 
         private TimeSpan CountCookTimeOfDish(DateTime startOrder, Dish dish, Cook cook)
@@ -76,7 +73,7 @@ namespace RestaurantTRPZ.BLL.Impl.Services
             else if (offEquipmentTime > startOrder)
             {  //equipment is busy 
                 dishCookTime += offEquipmentTime - startOrder;
-            } //else equipment is free and ready for working\
+            } //else equipment is free and ready for working
             dish.Equipment.OffTime = startOrder + dishCookTime;
             return dishCookTime;
         }

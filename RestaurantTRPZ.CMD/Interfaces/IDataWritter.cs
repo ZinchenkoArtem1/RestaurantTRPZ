@@ -1,4 +1,4 @@
-﻿using RestaurantTRPZ.DTO;
+﻿using RestaurantTRPZ.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +11,12 @@ namespace RestaurantTRPZ.CMD.Interfaces
     {
         void ShowInterfaceInstruction();
 
-        void ShowMenuDishes(IEnumerable<DishDTO> dishDTOs);
+        void ShowMenuDishes(IEnumerable<DishModel> dishModels);
 
-        void ShowSelectedDishes(IEnumerable<DishDTO> dishDTOs);
+        void ShowSelectedDishes(IEnumerable<DishModel> dishModels);
 
-        void ShowOrder(OrderDTO orderDTO);
+        void ShowOrder(OrderModel orderModel);
 
-        void ShowDish(DishDTO dishDTO);
+        void ShowDish(DishModel dishModel);
     }
 }

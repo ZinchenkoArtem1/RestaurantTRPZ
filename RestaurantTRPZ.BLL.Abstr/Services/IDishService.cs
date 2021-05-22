@@ -1,4 +1,4 @@
-﻿using RestaurantTRPZ.DTO;
+﻿using RestaurantTRPZ.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +9,8 @@ namespace RestaurantTRPZ.BLL.Abstr.Services
 {
     public interface IDishService
     {
-        IEnumerable<DishDTO> GetAllDishes();
+        IEnumerable<DishModel> GetAllDishes();
 
-        DishDTO GetById(int id);
+        DishModel GetById(int id);
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using RestarauntTRPZ.DAL.Abstr.Repositories;
 using RestarauntTRPZ.DAL.Impl.EF;
 using RestaurantTRPZ.Entities;
+using RestaurantTRPZ.Entity;
 
 namespace RestarauntTRPZ.DAL.Impl.Repositories
 {
@@ -33,17 +34,18 @@ namespace RestarauntTRPZ.DAL.Impl.Repositories
 
         public virtual IEnumerable<TEntity> GetAll()
         {
-            return dbSet;
+            return dbSet.ToList();
         }
+
         public virtual void Update(TEntity entity)
         {
-            TEntity find = this.Read(entity.Id);
+            TEntity find = Read(entity.Id);
             context.Entry(find).CurrentValues.SetValues(entity);
         }
 
         public virtual void Delete(TEntity entity)
         {
-            dbSet.Remove(this.Read(entity.Id));
+            dbSet.Remove(entity);
         }
     }
 }

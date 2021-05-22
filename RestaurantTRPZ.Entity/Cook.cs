@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantTRPZ.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -12,7 +13,15 @@ namespace RestaurantTRPZ.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
         public double Efficiency { get; set; }
+
         [Column(TypeName = "datetime2")]
         public DateTime WhenIsFree { get; set; }
+
+        public virtual ICollection<DishOrder> DishOrders { get; set; }
+
+        public Cook()
+        {
+            DishOrders = new List<DishOrder>();
+        }
     }
 }

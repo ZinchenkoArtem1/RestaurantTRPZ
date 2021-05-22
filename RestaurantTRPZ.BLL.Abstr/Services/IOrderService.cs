@@ -1,4 +1,4 @@
-﻿using RestaurantTRPZ.DTO;
+﻿using RestaurantTRPZ.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,6 @@ namespace RestaurantTRPZ.BLL.Abstr.Services
 {
     public interface IOrderService
     {
-        OrderDTO DoOrder(ICollection<DishDTO> dishes);
+        OrderModel DoOrder(ICollection<DishModel> dishes);
     }
 }

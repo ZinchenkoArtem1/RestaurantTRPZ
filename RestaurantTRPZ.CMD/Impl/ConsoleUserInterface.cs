@@ -5,7 +5,7 @@ using RestaurantTRPZ.BLL.Abstr.Services;
 using RestaurantTRPZ.BLL.Impl;
 using RestaurantTRPZ.BLL.Impl.Services;
 using RestaurantTRPZ.CMD.Interfaces;
-using RestaurantTRPZ.DTO;
+using RestaurantTRPZ.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +20,8 @@ namespace RestaurantTRPZ.CMD.Impl
         private readonly IOrderService _orderService;
         private readonly IDataWritter _consoleDataWritter;
         private readonly IDataReader _consoleDataReader;
-        private ICollection<DishDTO> dishes;
-        private ICollection<DishDTO> selectedDishes;
+        private ICollection<DishModel> dishes;
+        private ICollection<DishModel> selectedDishes;
 
         public ConsoleUserInterface(IDishService dishService, IOrderService orderService, 
             IDataWritter dataWritter, IDataReader dataReader)
@@ -31,7 +31,7 @@ namespace RestaurantTRPZ.CMD.Impl
             _consoleDataWritter = dataWritter;
             _consoleDataReader = dataReader;
             dishes = _dishService.GetAllDishes().ToList();
-            selectedDishes = new List<DishDTO>();
+            selectedDishes = new List<DishModel>();
         }
 
         public void Show()
@@ -69,16 +69,16 @@ namespace RestaurantTRPZ.CMD.Impl
             }
         }
 
-        private void AddDishToOrder(DishDTO dishDTO)
+        private void AddDishToOrder(DishModel dishModel)
         {
-            selectedDishes.Add(dishDTO);
+            selectedDishes.Add(dishModel);
         }
 
-        private OrderDTO DoOrder()
+        private OrderModel DoOrder()
         {
-            OrderDTO orderDTO = _orderService.DoOrder(selectedDishes.ToList());
+            OrderModel orderModel = _orderService.DoOrder(selectedDishes.ToList());
             selectedDishes.Clear();
-            return orderDTO;
+            return orderModel;
         }
     }
 }

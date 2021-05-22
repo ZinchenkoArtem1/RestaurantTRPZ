@@ -96,9 +96,9 @@
       <Project>{0be5dedd-9b1f-49d0-8191-027d6a9c6eea}</Project>
       <Name>RestaurantTRPZ.BLL.Impl</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RestaurantTRPZ.DTO\RestaurantTRPZ.DTO.csproj">
-      <Project>{f1d42716-350c-456a-b21d-afa5915cf567}</Project>
-      <Name>RestaurantTRPZ.DTO</Name>
+    <ProjectReference Include="..\RestaurantTRPZ.Models\RestaurantTRPZ.Models.csproj">
+      <Project>{3e1ec5da-fa4f-4112-aa07-f22b234cf18d}</Project>
+      <Name>RestaurantTRPZ.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -1,8 +1,8 @@
-﻿using AutoMapper;
-using RestarauntTRPZ.DAL.Abstr.UOW;
+﻿using RestarauntTRPZ.DAL.Abstr.UOW;
 using RestaurantTRPZ.BLL.Abstr.Services;
-using RestaurantTRPZ.DTO;
+using RestaurantTRPZ.BLL.Impl.Mappers;
 using RestaurantTRPZ.Entities;
+using RestaurantTRPZ.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,23 +14,21 @@ namespace RestaurantTRPZ.BLL.Impl.Services
     public class DishService : IDishService
     {
         private readonly IUnitOfWork unityOfWork;
-        private readonly IMapper mapper;
 
-        public DishService(IUnitOfWork unitOfWork, IMapper mapper)
+        public DishService(IUnitOfWork unitOfWork)
         {
             this.unityOfWork = unitOfWork;
-            this.mapper = mapper;
         }
 
-        public IEnumerable<DishDTO> GetAllDishes()
+        public IEnumerable<DishModel> GetAllDishes()
         {
             return unityOfWork.Dishes.GetAll()
-                .Select(d => mapper.Map<DishDTO>(d)).ToList();
+                .Select(d => d.EntityToModel());
         }
 
-        public DishDTO GetById(int id)
+        public DishModel GetById(int id)
         {
-            return mapper.Map<DishDTO>(unityOfWork.Dishes.Read(id));
+            return unityOfWork.Dishes.Read(id).EntityToModel();
         }
     }
 }
